@@ -1,5 +1,5 @@
-class Engine
-  def initialize(path)
-    @path = path
+class Lib
+  module Engine
+    
   end
 end

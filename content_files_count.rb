@@ -1,4 +1,5 @@
-require 'lib/engine'
+require './lib/engine.rb'
 
 class ContentFilesCount
+  
 end
