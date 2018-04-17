@@ -1,15 +1,13 @@
 require './lib/engine.rb'
 
-class ContentFilesCount  
-  if ARGV.length != 1
-    puts 'We need exactly one path directory parameter'
-    path = nil
-  else
-    path = (ARGV[0] != nil) ? "#{ARGV[0]}/**/*" : nil
-  end
-
-  if path != nil
-    file_contents = Engine.read_content(path)
+class ContentFilesCount
+  paths = ARGV
+  if !paths.empty?
+    file_contents = []
+    paths.each do |path|
+      path = "#{path}/**/*"
+      file_contents += Engine.read_content(path)
+    end
     result = Engine.count_contents(file_contents)
 
     puts 'Number of File with Same Contents'
@@ -20,6 +18,6 @@ class ContentFilesCount
     result.max_similar_content.each { |content,value| puts "#{content}: #{value}"}
   else
     puts 'Missing Path Directory. Please specify target Directory'
-    puts 'Eq: ruby content_files_count.rb ./document'
+    puts "Example: ruby content_files_count.rb './folder1' './folder2'"
   end
 end

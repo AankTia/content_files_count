@@ -9,4 +9,6 @@ Also can return the bigger numberof files if there are multiple files with this 
 For example, if there 4 files with content 'abc' and 5 files with content 'ab', got return value:'ab 5'
 
 ### Command
-In console: (`ruby content_file_count.rb './document'`)
+Excute In console
+Format: `ruby content_file_count.rb DIRECTORY_PATH`  
+Example: `ruby content_file_count.rb './folder1' './folder2`
